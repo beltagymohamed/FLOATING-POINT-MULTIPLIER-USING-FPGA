@@ -1,0 +1,1210 @@
+Analysis & Synthesis report for multiplier
+Fri Feb 14 15:52:36 2014
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |multiplier|CurrentState
+  9. State Machine - |multiplier|device:uMult|control:ctrl|State
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:0:shifter_array"
+ 16. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array"
+ 17. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array"
+ 18. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array"
+ 19. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array"
+ 20. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array"
+ 21. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array"
+ 22. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array"
+ 23. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array"
+ 24. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array"
+ 25. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array"
+ 26. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array"
+ 27. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array"
+ 28. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array"
+ 29. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array"
+ 30. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array"
+ 31. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array"
+ 32. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array"
+ 33. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array"
+ 34. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array"
+ 35. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array"
+ 36. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array"
+ 37. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array"
+ 38. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array"
+ 39. Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult"
+ 40. Elapsed Time Per Partition
+ 41. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Feb 14 15:52:36 2014           ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; multiplier                                      ;
+; Top-level Entity Name              ; multiplier                                      ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 832                                             ;
+;     Total combinational functions  ; 821                                             ;
+;     Dedicated logic registers      ; 101                                             ;
+; Total registers                    ; 101                                             ;
+; Total pins                         ; 82                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C6       ;                    ;
+; Top-level entity name                                                      ; multiplier         ; multiplier         ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------+---------+
+; ../VHDL/control.vhd              ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/control.vhd       ;         ;
+; ../VHDL/mul_int1.vhd             ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/mul_int1.vhd      ;         ;
+; ../VHDL/exceptions.vhd           ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/exceptions.vhd    ;         ;
+; ../VHDL/graph _driver.vhd        ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/graph _driver.vhd ;         ;
+; ../VHDL/multiplier.vhd           ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/multiplier.vhd    ;         ;
+; ../VHDL/shifter.vhd              ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/shifter.vhd       ;         ;
+; ../VHDL/romMemOpB.vhd            ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/romMemOpB.vhd     ;         ;
+; ../VHDL/romMemOpA.vhd            ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/romMemOpA.vhd     ;         ;
+; ../VHDL/reg.vhd                  ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/reg.vhd           ;         ;
+; ../VHDL/extractor.vhd            ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/extractor.vhd     ;         ;
+; ../VHDL/device.vhd               ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/device.vhd        ;         ;
+; ../VHDL/datapath.vhd             ; yes             ; User VHDL File  ; C:/ProjectV7/VHDL/datapath.vhd      ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 832   ;
+;                                             ;       ;
+; Total combinational functions               ; 821   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 122   ;
+;     -- 3 input functions                    ; 554   ;
+;     -- <=2 input functions                  ; 145   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 338   ;
+;     -- arithmetic mode                      ; 483   ;
+;                                             ;       ;
+; Total registers                             ; 101   ;
+;     -- Dedicated logic registers            ; 101   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 82    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 101   ;
+; Total fan-out                               ; 2858  ;
+; Average fan-out                             ; 2.85  ;
++---------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                     ;
++--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                 ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Library Name ;
++--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------+
+; |multiplier                                ; 821 (46)          ; 101 (3)      ; 0           ; 0            ; 0       ; 0         ; 82   ; 0            ; |multiplier                                                                     ; work         ;
+;    |device:uMult|                          ; 695 (0)           ; 98 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult                                                        ; work         ;
+;       |control:ctrl|                       ; 5 (5)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|control:ctrl                                           ; work         ;
+;       |datapath:dp|                        ; 595 (9)           ; 94 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp                                            ; work         ;
+;          |extractor:ext|                   ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp|extractor:ext                              ; work         ;
+;          |mul_int1:mult|                   ; 552 (552)         ; 35 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp|mul_int1:mult                              ; work         ;
+;             |shifter:\SH1:2:shifter_array| ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array ; work         ;
+;          |reg:rega|                        ; 1 (1)             ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp|reg:rega                                   ; work         ;
+;          |reg:regb|                        ; 2 (2)             ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp|reg:regb                                   ; work         ;
+;          |reg:regc|                        ; 8 (8)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|datapath:dp|reg:regc                                   ; work         ;
+;       |exceptions:ex|                      ; 95 (95)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|device:uMult|exceptions:ex                                          ; work         ;
+;    |graph_driver:outtAB_graph|             ; 39 (39)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|graph_driver:outtAB_graph                                           ; work         ;
+;    |graph_driver:result_graph|             ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|graph_driver:result_graph                                           ; work         ;
+;    |romMemOpA:uOpA|                        ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|romMemOpA:uOpA                                                      ; work         ;
+;    |romMemOpB:uOpB|                        ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |multiplier|romMemOpB:uOpB                                                      ; work         ;
++--------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------+
+; State Machine - |multiplier|CurrentState                                                           ;
++--------------------------+--------------------------+-----------------------+----------------------+
+; Name                     ; CurrentState.view_result ; CurrentState.multiply ; CurrentState.initial ;
++--------------------------+--------------------------+-----------------------+----------------------+
+; CurrentState.initial     ; 0                        ; 0                     ; 0                    ;
+; CurrentState.multiply    ; 0                        ; 1                     ; 1                    ;
+; CurrentState.view_result ; 1                        ; 0                     ; 1                    ;
++--------------------------+--------------------------+-----------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------+
+; State Machine - |multiplier|device:uMult|control:ctrl|State              ;
++----------------+--------------+----------------+------------+------------+
+; Name           ; State.deploy ; State.multiply ; State.load ; State.idle ;
++----------------+--------------+----------------+------------+------------+
+; State.idle     ; 0            ; 0              ; 0          ; 0          ;
+; State.load     ; 0            ; 0              ; 1          ; 1          ;
+; State.multiply ; 0            ; 1              ; 0          ; 1          ;
+; State.deploy   ; 1            ; 0              ; 0          ; 1          ;
++----------------+--------------+----------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                   ;
++-----------------------------------------------------+----------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                    ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------------------------+------------------------+
+; rst_mul                                             ; CurrentState.view_result               ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[0]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[23]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[24]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[25]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[26]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[27]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[28]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[29]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[30]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[10]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[9]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[8]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[7]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[6]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[5]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[4]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[3]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[2]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[1]               ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[12]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[13]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[14]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[15]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[16]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[17]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[18]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[19]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[20]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[21]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[22]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[11]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; device:uMult|exceptions:ex|exp_out[31]              ; device:uMult|control:ctrl|State.deploy ; yes                    ;
+; en_mul                                              ; CurrentState.view_result               ; yes                    ;
+; Number of user-specified and inferred latches = 34  ;                                        ;                        ;
++-----------------------------------------------------+----------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                    ;
++----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+; Register name                                                                                ; Reason for Removal                                                                     ;
++----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+; device:uMult|datapath:dp|reg:rega|r[1,5,11]                                                  ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[0..47]                ; Lost fanout                                                                            ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[0..47]                 ; Lost fanout                                                                            ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[0..47]                 ; Lost fanout                                                                            ;
+; device:uMult|datapath:dp|reg:regb|r[26..29]                                                  ; Merged with device:uMult|datapath:dp|reg:regb|r[25]                                    ;
+; device:uMult|datapath:dp|reg:regb|r[2,6,8,16]                                                ; Merged with device:uMult|datapath:dp|reg:regb|r[15]                                    ;
+; device:uMult|datapath:dp|reg:regb|r[3,4,7,9,10,14]                                           ; Merged with device:uMult|datapath:dp|reg:regb|r[0]                                     ;
+; device:uMult|datapath:dp|reg:regb|r[1,5]                                                     ; Merged with device:uMult|datapath:dp|reg:regb|r[11]                                    ;
+; device:uMult|datapath:dp|reg:rega|r[2,6,8,16]                                                ; Merged with device:uMult|datapath:dp|reg:rega|r[15]                                    ;
+; device:uMult|datapath:dp|reg:rega|r[3,4,7,9,10,14]                                           ; Merged with device:uMult|datapath:dp|reg:rega|r[0]                                     ;
+; device:uMult|datapath:dp|reg:regb|r[13,17,18]                                                ; Merged with device:uMult|datapath:dp|reg:regb|r[12]                                    ;
+; device:uMult|datapath:dp|reg:rega|r[27..29]                                                  ; Merged with device:uMult|datapath:dp|reg:rega|r[26]                                    ;
+; device:uMult|datapath:dp|reg:rega|r[17,18]                                                   ; Merged with device:uMult|datapath:dp|reg:rega|r[12]                                    ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:0:shifter_array|r[0..47]                 ; Stuck at GND due to stuck port clear                                                   ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[0,1,26..47]            ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[0..2,27..47]           ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[0..3,28..47]           ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[0..5,30..47]           ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[0..6,31..47]           ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[0..7,32..47]           ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[0..8,33..47]           ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[0..9,34..47]          ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[0..11,36..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[0..12,37..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[0..13,38..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[0..14,39..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[0..15,40..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[0..16,41..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[0..17,42..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[0..18,43..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[0..19,44..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[0..20,45..47]         ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[0..21,46,47]          ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[0..22,47]             ; Stuck at GND due to stuck port data_in                                                 ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[46]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[45] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[45]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[44] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[44]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[43] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[43]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[42] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[42]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[41] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[41]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[40] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[40]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[39] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[39]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[38] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[38]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[37] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[37]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[36] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[36]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[35] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[35]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[33] ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[33]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[32]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[32]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[31]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[31]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[30]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[30]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[29]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[29]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[27]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[27]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[26]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[26]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[25]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[25]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|done1                               ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[25]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[26]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[28]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[29]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[30]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[31]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[32]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[34]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[35]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[36]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[37]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[38]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[39]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[40]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[41]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[42]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[43]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[44]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[45]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[24]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[24]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[25]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[27]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[28]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[29]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[30]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[31]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[33]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[34]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[35]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[36]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[37]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[38]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[39]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[40]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[41]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[42]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[43]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[44]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[23]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[23]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[24]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[26]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[27]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[28]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[29]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[30]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[32]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[33]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[34]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[35]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[36]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[37]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[38]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[39]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[40]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[41]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[42]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[43]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[22]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[22]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[23]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[25]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[26]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[27]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[28]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[29]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[31]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[32]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[33]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[34]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[35]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[36]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[37]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[38]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[39]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[40]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[41]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[42]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[21]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[14,15,19]              ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[15,16,20,21]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[16,17,21,22]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[18,19,23,24]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[19,20,24,25]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[20,21,25,26]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[21,22,26,27]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[22,23,27,28]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[24,25,29,30]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[25,26,30,31]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[26,27,31,32]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[27,28,32,33]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[28,29,33,34]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[29,30,34,35]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[30,31,35,36]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[31,32,36,37]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[32,33,37,38]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[33,34,38,39]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[34,35,39,40]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[35,36,40,41]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[20]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[4,8,10,17]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[5,9,11,18,19]          ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[6,10,12,19,20]         ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[8,12,14,21,22]         ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[9,13,15,22,23]         ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[10,14,16,23,24]        ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[11,15,17,24,25]        ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[12,16,18,25,26]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[14,18,20,27,28]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[15,19,21,28,29]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[16,20,22,29,30]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[17,21,23,30,31]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[18,22,24,31,32]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[19,23,25,32,33]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[20,24,26,33,34]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[21,25,27,34,35]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[22,26,28,35,36]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[23,27,29,36,37]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[24,28,30,37,38]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[25,29,31,38,39]       ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[18]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[5,6,9,11,12]           ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[3,6,7,10,12,13,17]     ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[4,7,8,11,13,14,18]     ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[6,9,10,13,15,16,20]    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[7,10,11,14,16,17,21]   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[8,11,12,15,17,18,22]   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[9,12,13,16,18,19,23]   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[10,13,14,17,19,20,24] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[12,15,16,19,21,22,26] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[13,16,17,20,22,23,27] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[14,17,18,21,23,24,28] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[15,18,19,22,24,25,29] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[16,19,20,23,25,26,30] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[17,20,21,24,26,27,31] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[18,21,22,25,27,28,32] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[19,22,23,26,28,29,33] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[20,23,24,27,29,30,34] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[21,24,25,28,30,31,35] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[22,25,26,29,31,32,36] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[23,26,27,30,32,33,37] ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[3,7]                   ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array|r[4,8,14]                ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array|r[5,9,15]                ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array|r[7,11,17]               ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array|r[8,12,18]               ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array|r[9,13,19]               ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array|r[10,14,20]              ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array|r[11,15,21]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array|r[13,17,23]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array|r[14,18,24]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array|r[15,19,25]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array|r[16,20,26]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array|r[17,21,27]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array|r[18,22,28]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array|r[19,23,29]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array|r[20,24,30]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array|r[21,25,31]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array|r[22,26,32]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array|r[23,27,33]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array|r[24,28,34]             ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[13]  ;
+; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[16]                    ; Merged with device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array|r[2]   ;
+; Total Number of Removed Registers = 1181                                                     ;                                                                                        ;
++----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                       ;
++-----------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                      ;
++-----------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+; device:uMult|datapath:dp|reg:rega|r[11] ; Stuck at GND              ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[47], ;
+;                                         ; due to stuck port data_in ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[46], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[45], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[44], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[43], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[42], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[41], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[40], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[39], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[38], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[37], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[36], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[35], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[34], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[33], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[32], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[31], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[30], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[29], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[28], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[27], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[26], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[25], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[24], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[23], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[22], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[21], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[20], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[19], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[18], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[17], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[16], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[15], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[14], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[13], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[12], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[11], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[10], ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[9],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[8],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[7],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[6],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[5],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[4],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[3],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[2],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[1],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array|r[0]   ;
+; device:uMult|datapath:dp|reg:rega|r[5]  ; Stuck at GND              ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[47],  ;
+;                                         ; due to stuck port data_in ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[46],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[45],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[44],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[43],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[40],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[39],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[38],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[37],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[36],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[35],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[34],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[33],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[32],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[31],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[30],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[29],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[28],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[27],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[26],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[25],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[24],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[23],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[22],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[21],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[20],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[19],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[18],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[17],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[16],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[15],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[14],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[13],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[12],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[11],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[10],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[9],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[8],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[7],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[6],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[5],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[4],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[3],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[2],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[1],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array|r[0]    ;
+; device:uMult|datapath:dp|reg:rega|r[1]  ; Stuck at GND              ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[47],  ;
+;                                         ; due to stuck port data_in ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[46],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[45],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[44],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[43],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[40],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[39],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[38],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[37],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[36],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[35],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[34],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[33],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[32],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[31],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[30],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[29],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[28],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[27],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[26],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[25],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[24],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[23],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[22],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[21],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[20],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[19],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[18],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[17],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[16],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[15],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[14],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[13],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[12],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[11],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[10],  ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[9],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[8],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[7],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[6],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[5],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[4],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[3],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[2],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[1],   ;
+;                                         ;                           ; device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array|r[0]    ;
++-----------------------------------------+---------------------------+-----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 101   ;
+; Number of registers using Synchronous Clear  ; 25    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 101   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 59    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 4:1                ; 22 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; Yes        ; |multiplier|device:uMult|datapath:dp|reg:regc|r[10] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |multiplier|graph_driver:outtAB_graph|out_graph     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |multiplier|graph_driver:outtAB_graph|out_graph[3]  ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 39 LEs               ; 0 LEs                  ; No         ; |multiplier|graph_driver:outtAB_graph|out_graph[22] ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |multiplier|result                                  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |multiplier|device:uMult|exceptions:ex|exp_out      ;
+; 5:1                ; 20 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |multiplier|device:uMult|exceptions:ex|exp_out      ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |multiplier|device:uMult|exceptions:ex|exp_out      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:0:shifter_array" ;
++------+-------+----------+-----------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                               ;
++------+-------+----------+-----------------------------------------------------------------------+
+; in2  ; Input ; Info     ; Stuck at GND                                                          ;
++------+-------+----------+-----------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:1:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[4..1] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[0]    ; Input ; Info     ; Stuck at VCC                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:2:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[4..2] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[1]    ; Input ; Info     ; Stuck at VCC                                                     ;
+; in2[0]    ; Input ; Info     ; Stuck at GND                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:3:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[1..0] ; Input ; Info     ; Stuck at VCC                                                     ;
+; in2[4..2] ; Input ; Info     ; Stuck at GND                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:4:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[4..3] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[1..0] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[2]    ; Input ; Info     ; Stuck at VCC                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:5:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[4..3] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[2]    ; Input ; Info     ; Stuck at VCC                                                     ;
+; in2[1]    ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[0]    ; Input ; Info     ; Stuck at VCC                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:6:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[2..1] ; Input ; Info     ; Stuck at VCC                                                     ;
+; in2[4..3] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[0]    ; Input ; Info     ; Stuck at GND                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:7:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[2..0] ; Input ; Info     ; Stuck at VCC                                                     ;
+; in2[4..3] ; Input ; Info     ; Stuck at GND                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:8:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[2..0] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[3]    ; Input ; Info     ; Stuck at VCC                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:9:shifter_array" ;
++-----------+-------+----------+------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                          ;
++-----------+-------+----------+------------------------------------------------------------------+
+; in2[2..1] ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                     ;
+; in2[3]    ; Input ; Info     ; Stuck at VCC                                                     ;
+; in2[0]    ; Input ; Info     ; Stuck at VCC                                                     ;
++-----------+-------+----------+------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:10:shifter_array" ;
++--------+-------+----------+----------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                              ;
++--------+-------+----------+----------------------------------------------------------------------+
+; in2[4] ; Input ; Info     ; Stuck at GND                                                         ;
+; in2[3] ; Input ; Info     ; Stuck at VCC                                                         ;
+; in2[2] ; Input ; Info     ; Stuck at GND                                                         ;
+; in2[1] ; Input ; Info     ; Stuck at VCC                                                         ;
+; in2[0] ; Input ; Info     ; Stuck at GND                                                         ;
++--------+-------+----------+----------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:11:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[1..0] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[3]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[2]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:12:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..2] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[1..0] ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:13:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..2] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[1]    ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[0]    ; Input ; Info     ; Stuck at VCC                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:14:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..1] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[0]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:15:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..0] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:16:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..0] ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:17:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..1] ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[0]    ; Input ; Info     ; Stuck at VCC                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:18:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[3..2] ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[1]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[0]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:19:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[1..0] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[3..2] ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:20:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[1..0] ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[3]    ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[2]    ; Input ; Info     ; Stuck at VCC                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:21:shifter_array" ;
++--------+-------+----------+----------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                              ;
++--------+-------+----------+----------------------------------------------------------------------+
+; in2[4] ; Input ; Info     ; Stuck at VCC                                                         ;
+; in2[3] ; Input ; Info     ; Stuck at GND                                                         ;
+; in2[2] ; Input ; Info     ; Stuck at VCC                                                         ;
+; in2[1] ; Input ; Info     ; Stuck at GND                                                         ;
+; in2[0] ; Input ; Info     ; Stuck at VCC                                                         ;
++--------+-------+----------+----------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:22:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[2..1] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[3]    ; Input ; Info     ; Stuck at GND                                                      ;
+; in2[0]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array" ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                           ;
++-----------+-------+----------+-------------------------------------------------------------------+
+; in2[2..0] ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[4]    ; Input ; Info     ; Stuck at VCC                                                      ;
+; in2[3]    ; Input ; Info     ; Stuck at GND                                                      ;
++-----------+-------+----------+-------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "device:uMult|datapath:dp|mul_int1:mult" ;
++---------+-------+----------+---------------------------------------+
+; Port    ; Type  ; Severity ; Details                               ;
++---------+-------+----------+---------------------------------------+
+; in1[23] ; Input ; Info     ; Stuck at VCC                          ;
+; in2[23] ; Input ; Info     ; Stuck at VCC                          ;
++---------+-------+----------+---------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:06     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Feb 14 15:52:17 2014
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Final -c multiplier
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/control.vhd
+    Info (12022): Found design unit 1: control-arch_control
+    Info (12023): Found entity 1: control
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/mul_int1.vhd
+    Info (12022): Found design unit 1: mul_int1-arch_mul_int_1
+    Info (12023): Found entity 1: mul_int1
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/exceptions.vhd
+    Info (12022): Found design unit 1: exceptions-arch_exceptions
+    Info (12023): Found entity 1: exceptions
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/graph _driver.vhd
+    Info (12022): Found design unit 1: graph_driver-synt
+    Info (12023): Found entity 1: graph_driver
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/multiplier.vhd
+    Info (12022): Found design unit 1: multiplier-synt
+    Info (12023): Found entity 1: multiplier
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/shifter2.vhd
+    Info (12022): Found design unit 1: shifter2-arch_shifter2_1
+    Info (12023): Found entity 1: shifter2
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/shifter.vhd
+    Info (12022): Found design unit 1: shifter-arch_shifter_1
+    Info (12023): Found entity 1: shifter
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/rommemopb.vhd
+    Info (12022): Found design unit 1: romMemOpB-behavior
+    Info (12023): Found entity 1: romMemOpB
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/rommemopa.vhd
+    Info (12022): Found design unit 1: romMemOpA-behavior
+    Info (12023): Found entity 1: romMemOpA
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/reg.vhd
+    Info (12022): Found design unit 1: reg-arch_reg_1
+    Info (12023): Found entity 1: reg
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/mul_int2.vhd
+    Info (12022): Found design unit 1: mul_int2-arch_mul_int2_1
+    Info (12023): Found entity 1: mul_int2
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/extractor.vhd
+    Info (12022): Found design unit 1: extractor-behaviour
+    Info (12023): Found entity 1: extractor
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/device.vhd
+    Info (12022): Found design unit 1: device-arch_device_1
+    Info (12023): Found entity 1: device
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/datapath.vhd
+    Info (12022): Found design unit 1: datapath-arch_datapath_1
+    Info (12023): Found entity 1: datapath
+Info (12021): Found 2 design units, including 1 entities, in source file /projectv7/vhdl/add_sub.vhd
+    Info (12022): Found design unit 1: add_sub-behaviour
+    Info (12023): Found entity 1: add_sub
+Info (12127): Elaborating entity "multiplier" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at multiplier.vhd(30): object "result_graph_s" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at multiplier.vhd(73): signal "start" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at multiplier.vhd(83): signal "done_mult" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at multiplier.vhd(64): inferring latch(es) for signal or variable "en_mul", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at multiplier.vhd(64): inferring latch(es) for signal or variable "rst_mul", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "rst_mul" at multiplier.vhd(64)
+Info (10041): Inferred latch for "en_mul" at multiplier.vhd(64)
+Info (12128): Elaborating entity "romMemOpA" for hierarchy "romMemOpA:uOpA"
+Info (12128): Elaborating entity "romMemOpB" for hierarchy "romMemOpB:uOpB"
+Info (12128): Elaborating entity "device" for hierarchy "device:uMult"
+Info (12128): Elaborating entity "datapath" for hierarchy "device:uMult|datapath:dp"
+Info (12128): Elaborating entity "reg" for hierarchy "device:uMult|datapath:dp|reg:rega"
+Info (12128): Elaborating entity "mul_int1" for hierarchy "device:uMult|datapath:dp|mul_int1:mult"
+Info (12128): Elaborating entity "shifter" for hierarchy "device:uMult|datapath:dp|mul_int1:mult|shifter:\SH1:23:shifter_array"
+Warning (10492): VHDL Process Statement warning at shifter.vhd(30): signal "in2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "extractor" for hierarchy "device:uMult|datapath:dp|extractor:ext"
+Info (12128): Elaborating entity "exceptions" for hierarchy "device:uMult|exceptions:ex"
+Warning (10631): VHDL Process Statement warning at exceptions.vhd(27): inferring latch(es) for signal or variable "exp_out", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "exp_out[0]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[1]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[2]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[3]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[4]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[5]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[6]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[7]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[8]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[9]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[10]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[11]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[12]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[13]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[14]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[15]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[16]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[17]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[18]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[19]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[20]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[21]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[22]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[23]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[24]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[25]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[26]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[27]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[28]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[29]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[30]" at exceptions.vhd(27)
+Info (10041): Inferred latch for "exp_out[31]" at exceptions.vhd(27)
+Info (12128): Elaborating entity "control" for hierarchy "device:uMult|control:ctrl"
+Warning (10492): VHDL Process Statement warning at control.vhd(30): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at control.vhd(44): signal "done_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "graph_driver" for hierarchy "graph_driver:outtAB_graph"
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[7]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[8]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[9]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[10]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[11]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[12]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[13]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[14]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[15]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[16]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[17]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[18]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[19]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[20]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[21]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[22]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[23]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[24]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[25]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[26]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[27]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[28]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[29]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[30]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "result[31]" and its non-tri-state driver.
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "en_mul" merged with LATCH primitive "rst_mul"
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "result[0]~synth"
+    Warning (13010): Node "result[1]~synth"
+    Warning (13010): Node "result[2]~synth"
+    Warning (13010): Node "result[3]~synth"
+    Warning (13010): Node "result[4]~synth"
+    Warning (13010): Node "result[5]~synth"
+    Warning (13010): Node "result[6]~synth"
+    Warning (13010): Node "result[7]~synth"
+    Warning (13010): Node "result[8]~synth"
+    Warning (13010): Node "result[9]~synth"
+    Warning (13010): Node "result[10]~synth"
+    Warning (13010): Node "result[11]~synth"
+    Warning (13010): Node "result[12]~synth"
+    Warning (13010): Node "result[13]~synth"
+    Warning (13010): Node "result[14]~synth"
+    Warning (13010): Node "result[15]~synth"
+    Warning (13010): Node "result[16]~synth"
+    Warning (13010): Node "result[17]~synth"
+    Warning (13010): Node "result[18]~synth"
+    Warning (13010): Node "result[19]~synth"
+    Warning (13010): Node "result[20]~synth"
+    Warning (13010): Node "result[21]~synth"
+    Warning (13010): Node "result[22]~synth"
+    Warning (13010): Node "result[23]~synth"
+    Warning (13010): Node "result[24]~synth"
+    Warning (13010): Node "result[25]~synth"
+    Warning (13010): Node "result[26]~synth"
+    Warning (13010): Node "result[27]~synth"
+    Warning (13010): Node "result[28]~synth"
+    Warning (13010): Node "result[29]~synth"
+    Warning (13010): Node "result[30]~synth"
+    Warning (13010): Node "result[31]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "outAB[5]" is stuck at GND
+Info (17049): 144 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 935 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 40 output pins
+    Info (21060): Implemented 32 bidirectional pins
+    Info (21061): Implemented 853 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 78 warnings
+    Info: Peak virtual memory: 366 megabytes
+    Info: Processing ended: Fri Feb 14 15:52:36 2014
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:15
+
+

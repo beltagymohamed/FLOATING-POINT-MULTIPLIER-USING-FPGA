@@ -1,0 +1,13 @@
+
+State Machine - |multiplier|CurrentState
+Name CurrentState.view_result CurrentState.multiply CurrentState.initial 
+CurrentState.initial 0 0 0 
+CurrentState.multiply 0 1 1 
+CurrentState.view_result 1 0 1 
+
+State Machine - |multiplier|device:uMult|control:ctrl|State
+Name State.deploy State.multiply State.load State.idle 
+State.idle 0 0 0 0 
+State.load 0 0 1 1 
+State.multiply 0 1 0 1 
+State.deploy 1 0 0 1 

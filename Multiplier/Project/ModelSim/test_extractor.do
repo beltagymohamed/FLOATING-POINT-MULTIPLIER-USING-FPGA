@@ -1,0 +1,3 @@
+restart -f
+force ext_in 16#FFFFFFFFFFFF 0ns,16#8FFFFFFFFFFF 200ns,16#7FFFFFFFFFFF 300ns
+run 400ns 

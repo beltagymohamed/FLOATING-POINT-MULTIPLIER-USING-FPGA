@@ -1,0 +1,165 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 18:35:40  February 06, 2014
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		multiplier_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C20F484C6
+set_global_assignment -name TOP_LEVEL_ENTITY multiplier
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:35:40  FEBRUARY 06, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_location_assignment PIN_B3 -to reset
+set_location_assignment PIN_L1 -to clk
+set_location_assignment PIN_G7 -to showAB
+set_location_assignment PIN_AB4 -to start
+set_location_assignment PIN_F11 -to addrA[0]
+set_location_assignment PIN_H11 -to addrA[1]
+set_location_assignment PIN_H10 -to addrA[2]
+set_location_assignment PIN_E11 -to addrB[0]
+set_location_assignment PIN_G11 -to addrB[1]
+set_location_assignment PIN_F10 -to addrB[2]
+
+set_location_assignment PIN_C22 -to ready[0]
+set_location_assignment PIN_C20 -to ready[1]
+set_location_assignment PIN_D22 -to ready[2]
+set_location_assignment PIN_D20 -to ready[3]
+set_location_assignment PIN_E22 -to ready[4]
+set_location_assignment PIN_E20 -to ready[5]
+set_location_assignment PIN_F21 -to ready[6]
+set_location_assignment PIN_G22 -to ready[7]
+
+set_location_assignment PIN_G3 -to outAB[0]
+set_location_assignment PIN_F3 -to outAB[1]
+set_location_assignment PIN_F1 -to outAB[2]
+set_location_assignment PIN_E3 -to outAB[3]
+set_location_assignment PIN_E1 -to outAB[4]
+set_location_assignment PIN_D3 -to outAB[5]
+set_location_assignment PIN_D1 -to outAB[6]
+set_location_assignment PIN_C1 -to outAB[7]
+
+set_location_assignment PIN_G5 -to outAB[8]
+set_location_assignment PIN_F4 -to outAB[9]
+set_location_assignment PIN_F2 -to outAB[10]
+set_location_assignment PIN_E4 -to outAB[11]
+set_location_assignment PIN_E2 -to outAB[12]
+set_location_assignment PIN_D4 -to outAB[13]
+set_location_assignment PIN_D2 -to outAB[14]
+set_location_assignment PIN_C2 -to outAB[15]
+
+set_location_assignment PIN_K20 -to outAB[16]
+set_location_assignment PIN_K22 -to outAB[17]
+set_location_assignment PIN_J17 -to outAB[18]
+set_location_assignment PIN_J19 -to outAB[19]
+set_location_assignment PIN_J21 -to outAB[20]
+set_location_assignment PIN_H16 -to outAB[21]
+set_location_assignment PIN_H18 -to outAB[22]
+set_location_assignment PIN_G17 -to outAB[23]
+
+set_location_assignment PIN_K21 -to outAB[24]
+set_location_assignment PIN_J15 -to outAB[25]
+set_location_assignment PIN_J18 -to outAB[26]
+set_location_assignment PIN_J20 -to outAB[27]
+set_location_assignment PIN_J22 -to outAB[28]
+set_location_assignment PIN_H17 -to outAB[29]
+set_location_assignment PIN_H19 -to outAB[30]
+set_location_assignment PIN_G18 -to outAB[31]
+
+set_location_assignment PIN_Y18 -to result[0]
+set_location_assignment PIN_Y20 -to result[1]
+set_location_assignment PIN_Y22 -to result[2]
+set_location_assignment PIN_W22 -to result[3]
+set_location_assignment PIN_V20 -to result[4]
+set_location_assignment PIN_V22 -to result[5]
+set_location_assignment PIN_U20 -to result[6]
+set_location_assignment PIN_U22 -to result[7]
+
+set_location_assignment PIN_Y19 -to result[8]
+set_location_assignment PIN_Y21 -to result[9]
+set_location_assignment PIN_W21 -to result[10]
+set_location_assignment PIN_V19 -to result[11]
+set_location_assignment PIN_V21 -to result[12]
+set_location_assignment PIN_U19 -to result[13]
+set_location_assignment PIN_U21 -to result[14]
+set_location_assignment PIN_T21 -to result[15]
+
+set_location_assignment PIN_T22 -to result[16]
+set_location_assignment PIN_R18 -to result[17]
+set_location_assignment PIN_R20 -to result[18]
+set_location_assignment PIN_R22 -to result[19]
+set_location_assignment PIN_P17 -to result[20]
+set_location_assignment PIN_N15 -to result[21]
+set_location_assignment PIN_N22 -to result[22]
+set_location_assignment PIN_M19 -to result[23]
+
+set_location_assignment PIN_R17 -to result[24]
+set_location_assignment PIN_R19 -to result[25]
+set_location_assignment PIN_R21 -to result[26]
+set_location_assignment PIN_P15 -to result[27]
+set_location_assignment PIN_P18 -to result[28]
+set_location_assignment PIN_N21 -to result[29]
+set_location_assignment PIN_M18 -to result[30]
+set_location_assignment PIN_L18 -to result[31]
+
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name VHDL_FILE ../VHDL/control.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/mul_int1.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/exceptions.vhd
+set_global_assignment -name VHDL_FILE "../VHDL/graph _driver.vhd"
+set_global_assignment -name VHDL_FILE ../VHDL/multiplier.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/shifter2.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/shifter.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/romMemOpB.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/romMemOpA.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/reg.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/mul_int2.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/extractor.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/device.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/datapath.vhd
+set_global_assignment -name VHDL_FILE ../VHDL/add_sub.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
